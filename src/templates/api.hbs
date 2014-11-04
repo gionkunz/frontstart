@@ -1,0 +1,32 @@
+---
+layout: default
+title: API Documentation
+description: The API Documentation
+---
+{{#each dox}}
+  <h3>File {{file}}</h3>
+  {{#each comments}}
+    <article>
+      <header>
+        <h4>{{ctx.type}} {{ctx.name}}</h4>
+      </header>
+      <div class="description">
+        {{{description.full}}}
+      </div>
+      <div class="context">
+        Context: {{jsonStringify ctx}}
+      </div>
+      <p>Arguments:</p>
+      <ul class="params">
+        {{#each (doxTagsOfType this 'param')}}
+          <li><code>{{name}} ({{types}})</code> - {{description}}</li>
+        {{/each}}
+      </ul>
+      <div class="return">
+        {{#with (doxTag this 'returns')}}
+          Returns <code>{{types}}</code> - {{description}}
+        {{/with}}
+      </div>
+    </article>
+  {{/each}}
+{{/each}}

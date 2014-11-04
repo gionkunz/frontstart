@@ -1,0 +1,90 @@
+{
+  "name": "frontstart",
+  "description": "A Modular Front-End Tooling System",
+  "version": "0.0.1",
+  "author": "Gion Kunz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gionkunz/frontstart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gionkunz/frontstart/issues"
+  },
+  "keywords": [
+    "frontstart",
+    "build system",
+    "web stack",
+    "frontend tooling"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "assemble": "~0.4.42",
+    "assemble-dox": "0.0.2",
+    "browserify": "^5.12.0",
+    "browserify-istanbul": "^0.1.2",
+    "deamdify": "^0.1.1",
+    "debowerify": "^0.8.1",
+    "es6ify": "^1.5.1",
+    "glob": "^4.0.6",
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~0.7.4",
+    "grunt-browserify": "^3.1.0",
+    "grunt-connect-rewrite": "^0.2.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-csslint": "^0.3.1",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-imagemin": "^0.9.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-critical": "0.0.3",
+    "grunt-karma": "^0.9.0",
+    "grunt-sass": "~0.16.0",
+    "grunt-watchify": "^0.1.0",
+    "js-yaml": "^3.2.2",
+    "jshint-stylish": "~0.2.0",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-coverage": "^0.2.6",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-html2js-preprocessor": "^0.1.0",
+    "karma-jasmine": "^0.2.2",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-junit-reporter": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "load-grunt-tasks": "~0.4.0",
+    "lodash": "^2.4.1",
+    "remapify": "^1.1.1",
+    "seed-random": "^2.2.0",
+    "time-grunt": "~0.3.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "config": {
+    "source": "src",
+    "dest": "target/main/resources",
+    "siteDest": "target/main",
+    "reportDest": "target/test/reports",
+    "connectHost": "0.0.0.0",
+    "connectPort": "9000",
+    "sassIncludePaths": [
+      "src/",
+      "src/bower_components",
+      "src/bower_components/compass-mixins/lib",
+      "src/bower_components/foundation/scss"
+    ],
+    "browserSupport": [
+      "> 1%",
+      "last 2 version",
+      "ie 9"
+    ]
+  }
+}

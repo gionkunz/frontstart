@@ -1,0 +1,11 @@
+<section class="sg-component">
+  <header class="sg-component__header">
+    <h3>{{title}}</h3>
+    <p class="sg-component__description">{{description}}</p>
+  </header>
+  <div class="sg-component__body">
+    {{#each examples}}
+      {{partial ../name data}}
+    {{/each}}
+  </div>
+</section>

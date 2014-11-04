@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="{{#if html-classes}}{{html-classes}} {{/if}}no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{title}}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {{! Main CSS file will be loaded asynchronously where the critical bit is loaded in the head }}
+  <link rel="stylesheet" href="/resources/styles/all-critical.css" type="text/css" media="screen, print">
+  <link rel="stylesheet" href="/resources/styles/print.css" type="text/css" media="print">
+
+  <script type="text/javascript">
+    {{!  window._jsQueue allows you to push inline script content into a function which will be executed after the all.js file is loaded completely. }}
+    _jsQueue = [];
+
+    {{! Webfont loader config to load web fonts asynchronously }}
+    WebFontConfig = {
+      google: { families: [ 'Open+Sans::latin' ] },
+      custom: {
+        families: ['overpassregular'],
+        urls: ['/resources/styles/fonts.css']
+      },
+      timeout: 10000
+    };
+</script>
+</head>
+<body>
+
+{{> body}}
+
+<script type="text/javascript" src="/resources/scripts/critical.js"></script>
+<script type="text/javascript" src="/resources/scripts/all.js" async></script>
+
+{{! Main CSS file will be loaded asynchronously where the critical bit is loaded in the head }}
+<script>
+  (function(d,u){for (var i in u) {var l=d.createElement('link');l.type='text/css';l.rel='stylesheet';l.href=u[i]; d.getElementsByTagName('head')[0].appendChild(l);}}(document,['/resources/styles/all.css']));
+</script>
+</body>
+</html>

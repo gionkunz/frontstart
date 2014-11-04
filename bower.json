@@ -1,0 +1,19 @@
+{
+  "name": "frontstart",
+  "private": true,
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "json3": "~3.3.2",
+    "jquery": "~1.11.1",
+    "es5-shim": "~4.0.3",
+    "foundation": "~5.4.3",
+    "compass-mixins": "~1.0.2",
+    "jasmine-jquery": "~2.0.5",
+    "modernizr": "~2.8.3"
+  }
+}

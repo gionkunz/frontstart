@@ -1,0 +1,68 @@
+/**************************************************
+ * Sass mixins that allow you to write proper BEM
+ * with one level nesting for cascading block
+ * modifiers in a very convenient way.
+ * Modifier Libsass version until they support parent
+ * selector in values https://github.com/sass/libsass/issues/548
+ **************************************************/
+
+$bem-block-prefix: "" !default;
+$bem-element-prefix: "__" !default;
+$bem-modifier-prefix: "--" !default;
+
+@function str-index-or($heystack, $needle, $or) {
+  $index: str-index($heystack, $needle);
+  @if($index == null) {
+    $index: $or;
+  }
+  @return $index;
+}
+
+@function extract-block-name($selector) {
+  $selector: #{$selector};
+  $inf: 9999999999;
+
+  $dot-index: str-index-or($selector, ".", 1);
+  $space-index: str-index-or($selector, " ", $inf);
+  $modifier-index: str-index-or($selector, $bem-modifier-prefix, $inf);
+  $element-index: str-index-or($selector, $bem-element-prefix, $inf);
+  $pseudo-index: str-index-or($selector, ":", $inf);
+  $min-index: min($space-index, $modifier-index, $element-index, $pseudo-index);
+
+  @return str-slice($selector, $dot-index + 1, $min-index - 1);
+}
+
+@mixin bem($name: false, $modifier: "", $pseudo-class: "", $media: false, $prefix: "") {
+  @if($modifier != "") {
+    $modifier: #{$bem-modifier-prefix + $modifier};
+  }
+
+  @if($pseudo-class != "") {
+    $pseudo-class: #{":" + $pseudo-class};
+  }
+
+  @if($media) {
+    @media #{$media} {
+      #{"." + $prefix + $name + $modifier + $pseudo-class} {
+        @content;
+      }
+    }
+  } @else {
+    #{"." + $prefix + $name + $modifier + $pseudo-class} {
+      @content;
+    }
+  }
+}
+
+@mixin bem-block($name, $modifier: "", $pseudo-class: "", $media: false) {
+  @include bem($name, $modifier, $pseudo-class, $media, $bem-block-prefix) {
+    @content;
+  }
+}
+
+// Libsass version without parent selector as value :-/
+@mixin bem-element($block-selector, $name, $modifier: "", $pseudo-class: "", $media: false) {
+  @include bem($name, $modifier, $pseudo-class, $media, #{$bem-block-prefix + $block-selector + $bem-element-prefix}) {
+    @content;
+  }
+}

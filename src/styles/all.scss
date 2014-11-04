@@ -1,0 +1,34 @@
+@import "settings/site";
+
+@import "foundation/scss/normalize";
+@import "compass/css3";
+@import "compass/typography";
+
+@import "modules";
+
+@import "type";
+
+@import "components/styleguide/sg-header";
+
+@import "components/example-tabs/example-tabs";
+
+@include establish-baseline;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: $fs-color-black;
+  margin: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

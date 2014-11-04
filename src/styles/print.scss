@@ -1,0 +1,31 @@
+// Print styles go here
+h1 {
+  color: #000;
+  background: none;
+}
+
+nav, aside {
+  display: none;
+}
+
+body, article {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@page {
+  margin: 2cm;
+}
+
+h2, h3 {
+  page-break-after: avoid;
+}
+
+img {
+  max-width: 100% !important;
+}
+
+a[href^=http]:after {
+  content:" <" attr(href) "> ";
+}

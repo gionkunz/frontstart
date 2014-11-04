@@ -1,0 +1,64 @@
+$example-tabs-header-height: 40px !default;
+$example-tabs-border-width: 1px !default;
+$example-tabs-spacing: 10px !default;
+$example-tabs-panel-padding: 20px 40px 40px 40px !default;
+
+@include bem-block(example-tabs) {
+  position: relative;
+  background-color: $fs-color-content-background;
+
+  @include bem-element(example-tabs, list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  @include bem-element(example-tabs, button) {
+    @include adjust-font-size-to($fs-font-size-h5);
+    font-family: TheSaB3, "Trebuchet MS", Arial, Helvetica, sans-serif;
+    line-height: $example-tabs-header-height;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    max-height: $example-tabs-header-height;
+    padding: {
+      left: 0.5em;
+      right: 0.5em;
+    }
+    margin-left: $example-tabs-spacing;
+    border: {
+      left: $example-tabs-border-width solid $fs-color-grey;
+      top: $example-tabs-border-width solid $fs-color-grey;
+      right: $example-tabs-border-width solid $fs-color-grey;
+      bottom: none;
+    }
+    outline: none;
+    background: $fs-color-grey-light;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -9px 7px -11px inset;
+    color: $fs-color-grey-darker;
+    cursor: pointer;
+  }
+
+  @include bem-element(example-tabs, button, $modifier: active) {
+    color: $fs-color-active;
+    background: $fs-color-white;
+    box-shadow: none;
+    z-index: 3;
+  }
+
+  @include bem-element(example-tabs, panel) {
+    position: relative;
+    z-index: 2;
+    top: -$example-tabs-border-width;
+    display: none;
+    width: 100%;
+    padding: $example-tabs-panel-padding;
+
+    border: $example-tabs-border-width solid $fs-color-grey;
+  }
+
+  @include bem-element(example-tabs, panel, $modifier: active) {
+    display: block;
+  }
+}

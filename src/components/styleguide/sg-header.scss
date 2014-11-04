@@ -1,0 +1,9 @@
+@include bem-block(sg-header) {
+  @include bem-element(sg-header, tagline) {
+    font-size: $fs-font-size-h5;
+  }
+}
+
+@include bem-block(sg-header, $modifier: centered) {
+  text-align: center;
+}

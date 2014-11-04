@@ -1,0 +1,29 @@
+// Inset common settings here
+
+// Colors
+$fs-color-grey-light: rgb(245, 245, 245) !default;
+$fs-color-grey: darken($fs-color-grey-light, 10%) !default;
+$fs-color-grey-dark: darken($fs-color-grey, 10%) !default;
+$fs-color-grey-darker: darken($fs-color-grey-dark, 10%) !default;
+
+$fs-color-active: #a3a948 !default;
+$fs-color-white: #fff !default;
+$fs-color-black: #333;
+
+// General colors
+$fs-color-content-background: $fs-color-white !default;
+$fs-color-active: $fs-color-active !default;
+
+// Structure
+$fs-radius-small: 5px;
+
+// Type
+$fs-font-size-base: 16px;
+$fs-font-size-scale: 4/3;
+$fs-font-size-h5: $fs-font-size-base * $fs-font-size-scale;
+$fs-font-size-h4: $fs-font-size-h5 * $fs-font-size-scale;
+$fs-font-size-h3: $fs-font-size-h4 * $fs-font-size-scale;
+$fs-font-size-h2: $fs-font-size-h3 * $fs-font-size-scale;
+$fs-font-size-h1: $fs-font-size-h2 * $fs-font-size-scale;
+$fs-font-size-small: $fs-font-size-h1 * $fs-font-size-scale;
+$fs-font-size-smaller: $fs-font-size-small * $fs-font-size-scale;

@@ -1,0 +1,52 @@
+// Compass Vertical Rhythm Settings
+$base-font-size: $fs-font-size-base !default; // Sets the base font size
+$base-line-height: 22px !default; // Sets the base line height
+
+$round-to-nearest-half-line: true !default; // Allows compass to round to  multiples of 0.5x line height
+
+$heading-font-family: overpassregular, Arial, Helvetica, sans-serif !default;
+
+h1 {
+  @include adjust-font-size-to($fs-font-size-h1);
+  @include rhythm(0, 0, 2, 0, $fs-font-size-h1);
+  font-family: $heading-font-family;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h2 {
+  @include adjust-font-size-to($fs-font-size-h2);
+  @include rhythm(0, 3, 1, 0, $fs-font-size-h2);
+  font-family: $heading-font-family;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h3 {
+  @include adjust-font-size-to($fs-font-size-h3);
+  @include rhythm(0, 3, 1, 0, $fs-font-size-h3);
+  font-family: $heading-font-family;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h4 {
+  @include adjust-font-size-to($fs-font-size-h4);
+  @include rhythm(0, 2, 1, 0, $fs-font-size-h4);
+  font-family: $heading-font-family;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h5 {
+  @include adjust-font-size-to($fs-font-size-h5);
+  @include rhythm(0, 2, 1, 0, $fs-font-size-h5);
+  font-family: $heading-font-family;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+p {
+  @include adjust-font-size-to($fs-font-size-base, 1);
+  @include rhythm(0, 0.5, 0.5, 0, $fs-font-size-base);
+}

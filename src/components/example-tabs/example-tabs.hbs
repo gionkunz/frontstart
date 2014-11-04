@@ -1,0 +1,16 @@
+<section class="example-tabs" data-example-tabs{{#if options}} data-component-options='{{jsonStringify options}}'{{/if}} aria-multiselectable="false">
+  <ul class="example-tabs__list" role="tablist">
+    {{#each tabs}}
+      <li id="{{id}}Tab" class="example-tabs__button" data-example-tab="{{id}}" tabindex="0" role="tab" aria-controls="{{id}}TabPanel">
+        {{title}}
+      </li>
+    {{/each}}
+  </ul>
+  {{#each tabs}}
+    <div id="{{id}}TabPanel" class="example-tabs__panel" data-example-tab-panel="{{id}}" role="tabpanel" aria-labeledby="{{id}}Tab">
+      {{#each items}}
+        {{partial type data}}
+      {{/each}}
+    </div>
+  {{/each}}
+</section>
