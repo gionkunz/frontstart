@@ -5,3 +5,4 @@ temp
 .sass-cache
 npm-debug.log
 src/bower_components
+node
