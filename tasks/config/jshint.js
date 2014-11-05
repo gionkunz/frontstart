@@ -1,7 +1,6 @@
 'use strict';
 
 var stylish = require('jshint-stylish');
-var checkstyle = require('jshint-jenkins-checkstyle-reporter');
 var allFiles = [
   'Gruntfile.js',
   '<%= pkg.config.source %>/**/*.js',

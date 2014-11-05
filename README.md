@@ -57,9 +57,9 @@ Or switch to an already installed version so it will be set as your system wide 
 
 For more options visit https://github.com/creationix/nvm
 
-## Installation of the SSO Front-End development stack
+## Installation of Frontstart
 
-You can clone the repository and install the SSO Front-End development stack with the following steps:
+You can clone the repository and install Frontstart with the following steps:
 
     git clone https://github.com/gionkunz/frontstart.git
     cd frontstart
