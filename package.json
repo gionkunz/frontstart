@@ -76,8 +76,20 @@
     "dest": "target/main/resources",
     "siteDest": "target/main",
     "reportDest": "target/test/reports",
+    "connectBase": [
+      ".tmp",
+      "src",
+      ".",
+      ".tmp/pages"
+    ],
     "connectHost": "0.0.0.0",
     "connectPort": "9000",
+    "connectReWrites": [
+      {
+        "from": "^/resources/(.*)$",
+        "to": "/$1"
+      }
+    ],
     "sassIncludePaths": [
       "src/",
       "src/bower_components",

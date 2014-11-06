@@ -1,5 +1,6 @@
 'use strict';
 
+var pkg = require('../../package.json');
 var rewriteRulesSnippet = require('grunt-connect-rewrite/lib/utils').rewriteRequest;
 
 module.exports = {
@@ -7,19 +8,11 @@ module.exports = {
     port: '<%= pkg.config.connectPort %>',
     hostname: '<%= pkg.config.connectHost %>'
   },
-  rules: [
-    // Internal rewrite
-    {from: '^/resources/(.*)$', to: '/$1'}
-  ],
+  rules: pkg.config.connectReWrites,
   live: {
     options: {
       open: true,
-      base: [
-        '.tmp',
-        '<%= pkg.config.source %>',
-        '.',
-        '.tmp/pages'
-      ],
+      base: pkg.config.connectBase,
       livereload: 35729,
       middleware: function (connect, options) {
         var middlewares = [];
