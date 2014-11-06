@@ -1,0 +1,27 @@
+name: example-angular
+title: Simple example with Angular.js
+description: This simple example is using a modular approach to create and structure an Angular.js application.
+examples:
+  - title: Example 1
+    data:
+      options:
+        initialTab: second
+      tabs:
+        - title: First tab
+          id: first
+          items:
+            - type: text
+              data:
+                text: "Hi there. I'm a simple text"
+        - title: Second tab
+          id: second
+          items:
+            - type: text
+              data:
+                text: "Hi there. This is the second tab"
+        - title: Third tab
+          id: third
+          items:
+            - type: text
+              data:
+                text: "Hi there. This is the third tab"

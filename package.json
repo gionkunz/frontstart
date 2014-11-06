@@ -17,7 +17,9 @@
     "web stack",
     "frontend tooling"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "angular": "^1.2.23"
+  },
   "devDependencies": {
     "assemble": "~0.4.42",
     "assemble-dox": "0.0.2",

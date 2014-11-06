@@ -19,11 +19,9 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false,
     "module": false,
     "exports": false,
     "require": false,
-    "Foundation": false,
     "jasmine": false,
     "describe": false,
     "expect": false,
