@@ -1,6 +1,6 @@
 'use strict';
 
-require('angular').module('exampleAngularApp', [
+require('angular-bsfy').module('exampleAngularApp', [
   require('./example-feature-module').name
 ]);
 

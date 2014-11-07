@@ -18,7 +18,7 @@
     "frontend tooling"
   ],
   "dependencies": {
-    "angular": "^1.2.23"
+    "angular-bsfy": "^1.2.26-1"
   },
   "devDependencies": {
     "assemble": "~0.4.42",
@@ -61,7 +61,7 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "~0.4.0",
     "lodash": "^2.4.1",
-    "remapify": "^1.1.1",
+    "remapify": "^1.3.0",
     "seed-random": "^2.2.0",
     "time-grunt": "~0.3.2"
   },
