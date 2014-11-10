@@ -46,7 +46,7 @@ describe('Example tabs', function() {
     expect($tabs.find('#secondTabPanel')).toBeHidden();
     expect($tabs.find('#thirdTabPanel')).not.toBeHidden();
 
-    scTabs.activateTab($tabs.find('#secondTab'));
+    scTabs.activateTab($tabs.find('#secondTab').data('exampleTab'));
 
     expect($tabs.find('#firstTabPanel')).toBeHidden();
     expect($tabs.find('#secondTabPanel')).not.toBeHidden();

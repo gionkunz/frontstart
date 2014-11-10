@@ -6,6 +6,8 @@ examples:
     data:
       options:
         initialTab: second
+        bem:
+          name: example-tabs
       tabs:
         - title: First tab
           id: first

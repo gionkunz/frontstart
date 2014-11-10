@@ -1,7 +1,8 @@
 'use strict';
 
-var Class = require('./class');
+var Class = require('components/class');
 var $ = require('jquery');
+var Bem = require('components/bem');
 
 module.exports = Class.extend({
   /**
@@ -31,6 +32,11 @@ module.exports = Class.extend({
     this.$root = $(root || window.document);
     this.$element = $(el);
     $.extend(this.options, options || {}, this.$element.data('componentOptions') || {});
+
+    if(this.options.bem) {
+      this.bem = new Bem(this.options.bem.name, this.$element, this.options.bem.options);
+    }
+
     this.initialize();
   }
 });
