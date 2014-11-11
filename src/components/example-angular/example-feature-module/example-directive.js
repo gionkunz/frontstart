@@ -28,7 +28,7 @@ module.exports = function() {
     scope: {
       tick: '='
     },
-    template: '<article><div>The current tick: {{tickController.tick}}</div><button ng-click="tickController.resetTick()">reset</button></article>',
+    templateUrl: require('./example-template.tpl.html').name,
     controllerAs: 'tickController',
     controller: ExampleDirectiveController
   };

@@ -2,7 +2,17 @@
 
 var pkg = require('../../package.json');
 var remapify = require('remapify');
-var istanbul = require('browserify-istanbul');
+var istanbul = require('browserify-istanbul')({
+  // Only instrument real code (no vendor stuff and no tests)
+  ignore: [
+    '**/vendor/**',
+    '**/node_modules/**',
+    '**/bower_components/**',
+    '**/*.spec.js']
+});
+var ngHtml2Js = require('browserify-ng-html2js')({
+  extension: 'tpl.html'
+});
 
 function mapping(b) {
 
@@ -18,7 +28,7 @@ function mapping(b) {
 
 module.exports = {
   options: {
-    transform: ['debowerify', 'deamdify'],
+    transform: [ngHtml2Js, 'debowerify', 'deamdify'],
     preBundleCB: mapping
   },
   dist: {
@@ -50,15 +60,7 @@ module.exports = {
   },
   testOnlyWithCoverage: {
     options: {
-      transform: ['debowerify', 'deamdify', istanbul({
-        // Only instrument real code (no vendor stuff and no tests)
-        ignore: [
-          '**/vendor/**',
-          '**/node_modules/**',
-          '**/bower_components/**',
-          '**/*.spec.js']
-      })
-      ]
+      transform: [ngHtml2Js, 'debowerify', 'deamdify', istanbul]
     },
     files: {
       '.tmp/scripts/test.js': [
