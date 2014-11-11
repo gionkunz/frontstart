@@ -1,0 +1,7 @@
+@include bem-block(sg-component) {
+  margin-bottom: 3rem;
+
+  @include bem-element(sg-component, example) {
+    margin-bottom: 1rem;
+  }
+}

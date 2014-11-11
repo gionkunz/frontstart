@@ -5,7 +5,9 @@
   </header>
   <div class="sg-component__body">
     {{#each examples}}
-      {{partial ../name data}}
+      <div class="sg-component__example">
+        {{partial ../name data}}
+      </div>
     {{/each}}
   </div>
 </section>
