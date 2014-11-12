@@ -47,7 +47,9 @@ module.exports = {
       '.tmp/scripts/all.js': [
         '<%= pkg.config.source %>/components/**/*.js',
         '<%= pkg.config.source %>/scripts/all.js',
-        '!<%= pkg.config.source %>/components/**/*.spec.js'
+        '!<%= pkg.config.source %>/components/**/*.spec.js',
+        // Also load templates explicitly (with browserify-ng-html5js transform) so we get watchify to watch templates
+        '<%= pkg.config.source %>/components/**/*.tpl.html'
       ],
       '.tmp/scripts/test.js': [
         '<%= pkg.config.source %>/**/*.spec.js',
