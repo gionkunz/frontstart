@@ -8,7 +8,8 @@ var istanbul = require('browserify-istanbul')({
     '**/vendor/**',
     '**/node_modules/**',
     '**/bower_components/**',
-    '**/*.spec.js']
+    '**/*.spec.js',
+    '**/*.tpl.html']
 });
 var ngHtml2Js = require('browserify-ng-html2js')({
   extension: 'tpl.html'
