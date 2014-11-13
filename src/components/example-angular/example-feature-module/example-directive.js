@@ -12,6 +12,6 @@ function exampleDirective() {
   };
 }
 
-exampleDirective.directiveName = 'exampleDirective';
+exampleDirective.$name = 'exampleDirective';
 exampleDirective.$inject = [];
 module.exports = exampleDirective;

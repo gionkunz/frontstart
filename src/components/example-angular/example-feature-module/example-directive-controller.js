@@ -16,6 +16,6 @@ function ExampleDirectiveController($interval, $scope) {
   });
 }
 
-ExampleDirectiveController.controllerName = 'ExampleDirectiveCtrl';
+ExampleDirectiveController.$name = 'ExampleDirectiveCtrl';
 ExampleDirectiveController.$inject = ['$interval', '$scope'];
 module.exports = ExampleDirectiveController;

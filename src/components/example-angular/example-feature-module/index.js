@@ -3,6 +3,7 @@
 var exampleViewController = require('./example-view-controller');
 var exampleDirective = require('./example-directive');
 var exampleFactory = require('./example-factory');
+var exampleResource = require('./example-resource');
 
 module.exports = require('angular-bsfy').module('exampleFeatureModule', [
   // Regular dependencies
@@ -14,6 +15,7 @@ module.exports = require('angular-bsfy').module('exampleFeatureModule', [
 ]);
 
 module.exports.config(require('./example-route-config'));
-module.exports.factory(exampleFactory.factoryName, exampleFactory);
-module.exports.controller(exampleViewController.controllerName, exampleViewController);
-module.exports.directive(exampleDirective.directiveName, exampleDirective);
+module.exports.factory(exampleResource.$name, exampleResource);
+module.exports.factory(exampleFactory.$name, exampleFactory);
+module.exports.controller(exampleViewController.$name, exampleViewController);
+module.exports.directive(exampleDirective.$name, exampleDirective);

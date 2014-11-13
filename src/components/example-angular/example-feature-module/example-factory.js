@@ -1,20 +1,15 @@
 'use strict';
 
 
-function stargazersFactory($resource, $q) {
-  var Stargazers = $resource('https://api.github.com/repos/:owner/:repo/stargazers', {
-    owner: 'gionkunz',
-    repo: 'frontstart'
-  });
-
-  function getStargazersCount(params) {
-    return Stargazers.query(params).$promise.then(function(data) {
+function exampleFactory($q, ExampleResource) {
+  function getStargazersCount() {
+    return ExampleResource.query().$promise.then(function(data) {
       return $q.when(data.length);
     });
   }
 
-  function getStargazersLogins(params) {
-    return Stargazers.query(params).$promise.then(function(data) {
+  function getStargazersLogins() {
+    return ExampleResource.query().$promise.then(function(data) {
       return $q.when(data.map(function(d) {
         return d.login;
       }));
@@ -22,7 +17,7 @@ function stargazersFactory($resource, $q) {
   }
 
   function getStargazers() {
-    return Stargazers;
+    return ExampleResource;
   }
 
   return {
@@ -32,6 +27,6 @@ function stargazersFactory($resource, $q) {
   };
 }
 
-stargazersFactory.factoryName = 'exampleFactory';
-stargazersFactory.$inject = ['$resource', '$q'];
-module.exports = stargazersFactory;
+exampleFactory.$name = 'exampleFactory';
+exampleFactory.$inject = ['$q', 'ExampleResource'];
+module.exports = exampleFactory;

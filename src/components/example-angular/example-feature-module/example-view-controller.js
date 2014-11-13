@@ -8,6 +8,6 @@ function ExampleViewController() {
   };
 }
 
-ExampleViewController.controllerName = 'ExampleViewCtrl';
+ExampleViewController.$name = 'ExampleViewCtrl';
 ExampleViewController.$inject = [];
 module.exports = ExampleViewController;

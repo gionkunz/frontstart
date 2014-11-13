@@ -5,22 +5,20 @@ var angular = require('angular-bsfy');
 require('angular-bsfy/mocks');
 
 describe('Example factory', function() {
-  var stargazersHandler,
-    mockData = [{
-      login: 'user1'
-    }, {
-      login: 'user2'
-    }, {
-      login: 'user3'
-    }, {
-      login: 'user4'
-    }];
+  var mockData = [
+    {login: 'user1', junk_data: 123456},
+    {login: 'user2', junk_data: 123456},
+    {login: 'user3', junk_data: 123456},
+    {login: 'user4', junk_data: 123456}
+  ];
 
   beforeEach(angular.mock.module(require('./index').name));
 
   beforeEach(angular.mock.inject(function($httpBackend) {
     // Set up the mock http service responses
-    stargazersHandler = $httpBackend.when('GET', 'https://api.github.com/repos/gionkunz/frontstart/stargazers')
+    $httpBackend.when('GET', 'https://api.github.com/repos/gionkunz/frontstart/stargazers')
+      .respond(mockData);
+    $httpBackend.when('GET', 'https://api.github.com/repos/substack/node-browserify/stargazers')
       .respond(mockData);
   }));
 
@@ -29,21 +27,39 @@ describe('Example factory', function() {
     $httpBackend.verifyNoOutstandingRequest();
   }));
 
-  it('should work with mocked $http service', function(done) {
+  it('should count users correctly', angular.mock.inject(function(exampleFactory, $httpBackend) {
 
-    /*angular.mock.inject(function(exampleFactory, $httpBackend, $q) {
-      $httpBackend.expectGET('https://api.github.com/repos/gionkunz/frontstart/stargazers');
+    $httpBackend.expectGET('https://api.github.com/repos/gionkunz/frontstart/stargazers');
 
-      $q.all(exampleFactory.stargazersCount(), exampleFactory.stargazersLogins()).then(function(count, logins) {
-        console.log(count, logins);
+    exampleFactory.getStargazersCount().then(function(count) {
+      expect(count).toBe(mockData.length);
+    });
 
-        expect(count).toBe(mockData.length);
-        expect(logins).toEqual(mockData.map(function(d) {
-          return d.login;
-        }));*/
+    $httpBackend.flush();
+  }));
 
-        done();
-    /*  });
-    });*/
-  });
+  it('should list only logins and in correct order', angular.mock.inject(function(exampleFactory, $httpBackend) {
+
+    $httpBackend.expectGET('https://api.github.com/repos/gionkunz/frontstart/stargazers');
+
+    exampleFactory.getStargazersLogins().then(function(logins) {
+      expect(logins).toEqual(mockData.map(function(d) {
+        return d.login;
+      }));
+    });
+
+    $httpBackend.flush();
+  }));
+
+  it('can also provide Resource directly to query different repository', angular.mock.inject(function(exampleFactory, $httpBackend) {
+
+    $httpBackend.expectGET('https://api.github.com/repos/substack/node-browserify/stargazers');
+
+    exampleFactory.getStargazers().query({
+      owner: 'substack',
+      repo: 'node-browserify'
+    });
+
+    $httpBackend.flush();
+  }));
 });

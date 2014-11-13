@@ -12,7 +12,7 @@ describe('Example view controller', function() {
 
   it('should be injected', angular.mock.inject(function($controller, $rootScope) {
     // Instantiate a new controller with $controller and assign $rootScope and new child scope
-    var exampleViewCtrl = $controller(exampleViewController.controllerName, {
+    var exampleViewCtrl = $controller(exampleViewController.$name, {
       $scope: $rootScope.$new(),
       $rootScope: $rootScope
     });
@@ -22,7 +22,7 @@ describe('Example view controller', function() {
 
   it('should reverse message correctly', angular.mock.inject(function($controller, $rootScope) {
     // Instantiate a new controller with $controller and assign $rootScope and new child scope
-    var exampleViewCtrl = $controller(exampleViewController.controllerName, {
+    var exampleViewCtrl = $controller(exampleViewController.$name, {
       $scope: $rootScope.$new(),
       $rootScope: $rootScope
     });
@@ -35,7 +35,7 @@ describe('Example view controller', function() {
 
   it('should work with a compiled view and UI interactions', angular.mock.inject(function($controller, $rootScope, $templateCache, $compile) {
     // Construct controller expression with "controller as syntax" used in the view
-    var controllerExpression = [exampleViewController.controllerName, 'as', 'exampleViewCtrl'].join(' ');
+    var controllerExpression = [exampleViewController.$name, 'as', 'exampleViewCtrl'].join(' ');
     // Create a new child scope of $rootScope which will be used as view model for the controller and the view
     var scope = $rootScope.$new();
     // Instantiate a new controller using the "controller as syntax" expression
