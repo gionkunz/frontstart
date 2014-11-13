@@ -24,6 +24,12 @@ function mapping(b) {
       // ./src/main/components/comp1/scripts/comp1.js will be available as components/comp1
       return 'components/' + basename.replace(/\.js$/, '');
     }
+  }, {
+    src: pkg.config.source + '/globals/**/*.js',
+    filter: function(alias, dirname, basename) {
+      // ./src/main/components/comp1/scripts/comp1.js will be available as components/comp1
+      return basename.replace(/\.js$/, '');
+    }
   }]);
 }
 

@@ -18,7 +18,10 @@
     "frontend tooling"
   ],
   "dependencies": {
-    "angular-bsfy": "^1.2.26-1"
+    "angular": "^1.3.2",
+    "angular-mocks": "^1.3.2",
+    "angular-resource": "^1.3.2",
+    "angular-route": "^1.3.2"
   },
   "devDependencies": {
     "assemble": "~0.4.42",

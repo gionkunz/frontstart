@@ -5,10 +5,10 @@ var exampleDirective = require('./example-directive');
 var exampleFactory = require('./example-factory');
 var exampleResource = require('./example-resource');
 
-module.exports = require('angular-bsfy').module('exampleFeatureModule', [
+module.exports = require('ng').module('exampleFeatureModule', [
   // Regular dependencies
-  require('angular-bsfy/route').name,
-  require('angular-bsfy/resource').name,
+  require('ng-route').name,
+  require('ng-resource').name,
   // Template module dependencies (created with browserify-ng-html2js)
   require('./example-view-template.tpl.html').name,
   require('./example-directive-template.tpl.html').name

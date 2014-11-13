@@ -1,15 +1,13 @@
 'use strict';
 
-// Load angular and ngMocks
-var angular = require('angular-bsfy');
-require('angular-bsfy/mocks');
+var mock = require('ng-mocks');
 
 //TODO: Needs some investigation why scope and isolateScope is not updated with controller value
 describe('Example directive', function() {
 
-  beforeEach(angular.mock.module(require('./index').name));
+  beforeEach(mock.module(require('./index').name));
 
-  it('should compile without errors', angular.mock.inject(function($compile, $rootScope, $interval) {
+  it('should compile without errors', mock.inject(function($compile, $rootScope, $interval) {
 
     var scope = $rootScope.$new();
     scope.tick = 2;

@@ -1,16 +1,14 @@
 'use strict';
 
-// Load angular and ngMocks
-var angular = require('angular-bsfy');
-require('angular-bsfy/mocks');
+var mock = require('ng-mocks');
 
 describe('Example view controller', function() {
   var exampleViewController = require('./example-view-controller');
   var exampleViewTemplate = require('./example-view-template.tpl.html');
 
-  beforeEach(angular.mock.module(require('./index').name));
+  beforeEach(mock.module(require('./index').name));
 
-  it('should be injected', angular.mock.inject(function($controller, $rootScope) {
+  it('should be injected', mock.inject(function($controller, $rootScope) {
     // Instantiate a new controller with $controller and assign $rootScope and new child scope
     var exampleViewCtrl = $controller(exampleViewController.$name, {
       $scope: $rootScope.$new(),
@@ -20,7 +18,7 @@ describe('Example view controller', function() {
     expect(exampleViewCtrl).not.toBeUndefined();
   }));
 
-  it('should reverse message correctly', angular.mock.inject(function($controller, $rootScope) {
+  it('should reverse message correctly', mock.inject(function($controller, $rootScope) {
     // Instantiate a new controller with $controller and assign $rootScope and new child scope
     var exampleViewCtrl = $controller(exampleViewController.$name, {
       $scope: $rootScope.$new(),
@@ -33,7 +31,7 @@ describe('Example view controller', function() {
     expect(exampleViewCtrl.message).toBe('!dlroW olleH');
   }));
 
-  it('should work with a compiled view and UI interactions', angular.mock.inject(function($controller, $rootScope, $templateCache, $compile) {
+  it('should work with a compiled view and UI interactions', mock.inject(function($controller, $rootScope, $templateCache, $compile) {
     // Construct controller expression with "controller as syntax" used in the view
     var controllerExpression = [exampleViewController.$name, 'as', 'exampleViewCtrl'].join(' ');
     // Create a new child scope of $rootScope which will be used as view model for the controller and the view

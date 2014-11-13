@@ -1,8 +1,6 @@
 'use strict';
 
-// Load angular and ngMocks
-var angular = require('angular-bsfy');
-require('angular-bsfy/mocks');
+var mock = require('ng-mocks');
 
 describe('Example factory', function() {
   var mockData = [
@@ -12,9 +10,9 @@ describe('Example factory', function() {
     {login: 'user4', junk_data: 123456}
   ];
 
-  beforeEach(angular.mock.module(require('./index').name));
+  beforeEach(mock.module(require('./index').name));
 
-  beforeEach(angular.mock.inject(function($httpBackend) {
+  beforeEach(mock.inject(function($httpBackend) {
     // Set up the mock http service responses
     $httpBackend.when('GET', 'https://api.github.com/repos/gionkunz/frontstart/stargazers')
       .respond(mockData);
@@ -22,12 +20,12 @@ describe('Example factory', function() {
       .respond(mockData);
   }));
 
-  afterEach(angular.mock.inject(function($httpBackend) {
+  afterEach(mock.inject(function($httpBackend) {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
   }));
 
-  it('should count users correctly', angular.mock.inject(function(exampleFactory, $httpBackend) {
+  it('should count users correctly', mock.inject(function(exampleFactory, $httpBackend) {
 
     $httpBackend.expectGET('https://api.github.com/repos/gionkunz/frontstart/stargazers');
 
@@ -38,7 +36,7 @@ describe('Example factory', function() {
     $httpBackend.flush();
   }));
 
-  it('should list only logins and in correct order', angular.mock.inject(function(exampleFactory, $httpBackend) {
+  it('should list only logins and in correct order', mock.inject(function(exampleFactory, $httpBackend) {
 
     $httpBackend.expectGET('https://api.github.com/repos/gionkunz/frontstart/stargazers');
 
@@ -51,7 +49,7 @@ describe('Example factory', function() {
     $httpBackend.flush();
   }));
 
-  it('can also provide Resource directly to query different repository', angular.mock.inject(function(exampleFactory, $httpBackend) {
+  it('can also provide Resource directly to query different repository', mock.inject(function(exampleFactory, $httpBackend) {
 
     $httpBackend.expectGET('https://api.github.com/repos/substack/node-browserify/stargazers');
 

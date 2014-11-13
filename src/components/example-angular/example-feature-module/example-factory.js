@@ -1,6 +1,5 @@
 'use strict';
 
-
 function exampleFactory($q, ExampleResource) {
   function getStargazersCount() {
     return ExampleResource.query().$promise.then(function(data) {
