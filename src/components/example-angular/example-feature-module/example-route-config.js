@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($routeProvider, $locationProvider) {
+function exampleRouteConfig($routeProvider, $locationProvider) {
   $routeProvider
     .when('/example-view', {
       templateUrl: require('./example-view-template.tpl.html').name,
@@ -10,6 +10,7 @@ module.exports = function ($routeProvider, $locationProvider) {
 
   // Enable HTML5 mode
   $locationProvider.html5Mode(true);
-};
+}
 
-module.exports.$inject = ['$routeProvider', '$locationProvider'];
+exampleRouteConfig.$inject = ['$routeProvider', '$locationProvider'];
+module.exports = exampleRouteConfig;

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function() {
+function exampleDirective() {
   return {
     restrict: 'E',
     scope: {
@@ -10,7 +10,8 @@ module.exports = function() {
     controllerAs: 'exampleDirectiveCtrl',
     controller: require('./example-directive-controller')
   };
-};
+}
 
-module.exports.directiveName = 'exampleDirective';
-module.exports.$inject = [];
+exampleDirective.directiveName = 'exampleDirective';
+exampleDirective.$inject = [];
+module.exports = exampleDirective;

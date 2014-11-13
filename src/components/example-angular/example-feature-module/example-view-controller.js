@@ -1,16 +1,13 @@
 'use strict';
 
-var Class = require('components/class');
+function ExampleViewController() {
+  this.message = 'Hello World!';
 
-module.exports = Class.extend({
-  constructor: function() {
-    this.message = 'Hello World!';
-  },
-
-  reverseMessage: function() {
+  this.reverseMessage = function reverseMessage() {
     this.message = this.message.split('').reverse().join('');
-  }
-});
+  };
+}
 
-module.exports.controllerName = 'ExampleViewCtrl';
-module.exports.$inject = [];
+ExampleViewController.controllerName = 'ExampleViewCtrl';
+ExampleViewController.$inject = [];
+module.exports = ExampleViewController;
