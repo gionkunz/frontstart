@@ -25,7 +25,7 @@
     "assemble-dox": "0.0.2",
     "browserify": "^5.12.0",
     "browserify-istanbul": "^0.1.2",
-    "browserify-ng-html2js": "git://github.com/gionkunz/browserify-ng-html2js.git",
+    "browserify-ng-html2js": "^0.3.1",
     "deamdify": "^0.1.1",
     "debowerify": "^0.8.1",
     "es6ify": "^1.5.1",
